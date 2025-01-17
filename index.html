@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/DAY_5/reset.css">
+    <link rel="stylesheet" href="/DAY_5/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Donnez votre avis</h1>
+    <form id="feedbackForm" novalidate>
+        <label for="name">Entrez un nom :</label>
+        <input id="name" name="name" placeholder="Naruto" required minlength="3"/>
+        <span class="warning minChara3 hidden">Ce champs doit contenir au moins 3 caractères</span>
+        <span class="warning  emptyName hidden">Ce champs est obligatoire</span>
+        <br>
+        <label for="email">Entrez un mail :</label>
+        <input type="email" id="email" name="email" placeholder="votre@email.fr" required pattern="/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" />
+        <span class="warning invalidEmail hidden">Veuillez entrer une adresse email valide</span>
+        <span class="warning  emptyMail hidden">Ce champs est obligatoire</span>
+        <br>
+        <label for="message">Message :</label>
+        <textarea type="message" id="message" name="message" placeholder="Message" required minlength="10"></textarea>
+        <span class="warning minChara10 hidden">Ce champs doit contenir au moins 10 caractères</span>
+        <span class="warning  emptyMessage hidden">Ce champs est obligatoire</span>
+        <br>
+        <label for="review">Note :</label>
+        <select name="review" id="review" required>
+            <option value="0">Sélectionnez</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <span class="warning  emptySelection hidden">Ce champs est obligatoire</span>
+        <br>
+        <button type="submit" id="submit">Envoyer</button>
+        <span class="warning  formSent hidden">Votre feedback a été envoyé avec succès</span>
+    </form>
+
+    <script src="/DAY_5/index.js"></script>
+</body>
+
+</html>
