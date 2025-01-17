@@ -24,7 +24,7 @@ emailInput.addEventListener("input", function () {
     if (emailInput.validity.valueMissing) {
         toggleVisibility(emptyMail, true);
         toggleVisibility(invalidEmail, false);
-    } else if (!emailInput.validity.valid) {
+    } else if (!validateEmail(emailInput.value)) { // Validation manuelle
         toggleVisibility(invalidEmail, true);
         toggleVisibility(emptyMail, false);
     } else {
@@ -120,7 +120,7 @@ feedbackForm.addEventListener("submit", function (event) {
         toggleVisibility(emptySelection, false);
     }
 
-    // Si tous les champs sont valides, on envoie le message de succès
+    // Si tous les champs sont valides, on envoie le message de
     if (formIsValid) {
         toggleVisibility(formSent, true);
         feedbackForm.reset()
@@ -128,6 +128,7 @@ feedbackForm.addEventListener("submit", function (event) {
     }
 });
 
+// Fonction qui toggle les messages d'erreurs
 function toggleVisibility(element, visible) {
     if (visible) {
         element.classList.remove("hidden");
@@ -138,3 +139,8 @@ function toggleVisibility(element, visible) {
     }
 }
 
+// Fonction validatrice d'email manuel
+function validateEmail(email) { 
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; 
+    return emailPattern.test(email);
+}
