@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', () => {
+
 const nameInput = document.querySelector("#name");
 const minChara3 = document.querySelector(".minChara3");
 const emptyName = document.querySelector(".emptyName");
@@ -144,3 +146,5 @@ function validateEmail(email) {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; 
     return emailPattern.test(email);
 }
+
+});
